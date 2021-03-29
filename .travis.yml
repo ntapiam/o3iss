@@ -1,0 +1,33 @@
+language: rust
+rust: stable
+cache: cargo
+os:
+- linux
+- osx
+- windows
+before_install:
+- |-
+  case $TRAVIS_OS_NAME in
+    windows)
+      choco install python3;;
+  esac
+script:
+- |-
+  case $TRAVIS_OS_NAME in
+    windows)
+      cmd.exe //c "RefreshEnv.cmd & cargo build --release";;
+    *)
+      cargo build --release;;
+  esac
+deploy:
+  on:
+    branch: trunk
+  provider: releases
+  token:
+    secure: iYZhEH+eOWvc99L9/pfodoT3MI+SiAi/DPUUryKZbPkeaJ8aPm8G8Dkb8XWgvt/xiTVKME9k2aByVXbIdm8wcD26X5WvvDfA4NPEFWd4dm8cCZeTIzMQKHASDDtjIB7qkVd4vyRONBpt4CtpYRMBsvK7w7OHr2+j5EyA1GvqnSWOevNIhimro6lwRYA33bEmxjATty/fcOIz+0FMyCUDm23EYySYJww+u64orTkcQJctdxUbj+CDllci2PvRQCfLpy+bNQQi5hwyGgnfexqUTQ7aCQGw17kcRHYNtHF+Vw2owakNk1qiodAJkVcEoieir4orZ39L67eKJMdHBSASCylPIJAFHVn/m52/vC9HJieG5ggH85DUJHQSOGpbCK6zMV7JpE5kC6K5T1r7Y5rcfgG3v59eWaYsrzf+YEXpwvcos4CeJD4L9UryKN0a2pfnuugYGx5KDWkQbKB2+La5/Xw3E4QnVVrC/8vPF6f4vI8WPAVn+S5Ayu+BT6qUYxudm5/Q3bejBUqhrBhsxaXjt/1zdNyiEWAwx01MlRJV/FAXt+jhG5ZKkJs/unysccraXRkYZCQGv5v4d/rmmvmKQKqCI+tEsggWZOYuc5CdvPP2LxXGq1sdFfs1iJk8w1D/FzsOJt7QE1FwWw92QTFJ6cRdjiK3ogbQu4WZKVJw9U4=
+  file:
+    - target/release/libo3iss.dylib
+    - target/release/libo3iss.so
+    - target/release/libo3iss.dll
+  draft: true
+  skip_cleanup: true
