@@ -2,6 +2,8 @@ use array2d::Array2D;
 use cpython::{py_fn, py_module_initializer, PyResult, Python};
 use std::collections::VecDeque;
 
+const UISIZE: u32 = std::mem::size_of::<usize>() as u32 * 8;
+
 py_module_initializer!(o3iss, |py, m| {
     m.add(py, "__doc__", "Rust implementation of ISS")?;
     m.add(
@@ -39,7 +41,7 @@ pub fn i2c(n: &usize) -> Vec<usize> {
 }
 
 fn ffs(n: &usize) -> usize {
-    (64u32 - n.leading_zeros()) as usize
+    (UISIZE - n.leading_zeros()) as usize
 }
 
 fn parent(n: &usize) -> usize {
