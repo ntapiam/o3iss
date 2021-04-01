@@ -1,10 +1,9 @@
-#!/usr/bin/env python3
-import sys
-
 from setuptools import setup
 from setuptools_rust import RustExtension, Binding
 
 
 setup(
-    rust_extensions=[RustExtension("o3iss.o3iss", binding=Binding.RustCPython)],
+    packages = ["o3iss"],
+    rust_extensions = [RustExtension("o3iss.o3iss", binding=Binding.RustCPython)]
 )
+
