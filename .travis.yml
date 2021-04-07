@@ -45,6 +45,6 @@ script:
     *)
       python3 -m cibuildwheel --output-dir wheelhouse;;
     esac
-  - twine upload --skip-existing --repository testpypi wheelhouse/*
+  - twine upload --skip-existing wheelhouse/*
 
 
