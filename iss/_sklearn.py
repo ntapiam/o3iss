@@ -51,7 +51,7 @@ class IssTransformer(BaseEstimator, TransformerMixin):
 
 class IssClassifier(BaseEstimator, ClassifierMixin):
     def __init__(self, level=4, n_jobs=None):
-        sel.level = level
+        self.level = level
         self.n_jobs = n_jobs
 
     def fit(self, X, y):
