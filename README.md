@@ -33,22 +33,22 @@ where both the input and ouput arrays are one-dimensional.
 In `v0.1.2`, we introduced partial support for the `sklearn` framework.
 Example (assuming that `sktime` is present):
 ```python3
->> from iss import IssClassifier
->> from sktime.datasets import load_gunpoint
->> from sktime.utils.data_processing import from_nested_to_2d_array
->> 
->> 
->> Xtrain, ytrain = load_gunpoint(split="train", return_X_y=True)
->> Xtest, ytest = load_gunpoint(split="test", return_X_y=True)
->> Xtrain, Xtest = (
->>     from_nested_to_2d_array(Xtrain).to_numpy(),
->>     from_nested_to_2d_array(Xtest).to_numpy(),
->> )
->> ytrain, ytest = ytrain.astype(int), ytest.astype(int)
->> 
->> clf = IssClassifier(level=3, n_jobs=7)
->> clf.fit(Xtrain, ytrain)
->> print(clf.score(Xtest, ytest))
+from iss import IssClassifier
+from sktime.datasets import load_gunpoint
+from sktime.utils.data_processing import from_nested_to_2d_array
+
+
+Xtrain, ytrain = load_gunpoint(split="train", return_X_y=True)
+Xtest, ytest = load_gunpoint(split="test", return_X_y=True)
+Xtrain, Xtest = (
+    from_nested_to_2d_array(Xtrain).to_numpy(),
+    from_nested_to_2d_array(Xtest).to_numpy(),
+)
+ytrain, ytest = ytrain.astype(int), ytest.astype(int)
+
+clf = IssClassifier(level=3, n_jobs=7)
+clf.fit(Xtrain, ytrain)
+print(clf.score(Xtest, ytest))
 >> 0.9133333333333333
 ```
 
