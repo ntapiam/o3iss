@@ -8,7 +8,6 @@ jobs:
     - services: docker
       env: CIBW_BUILD="cp3*-manylinux*"
     - os: osx
-      osx_image: xcode11
       env: CIBW_BUILD="cp3*-macosx*"
     - os: windows
       env:
