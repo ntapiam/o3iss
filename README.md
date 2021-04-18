@@ -7,7 +7,7 @@ with Python 3 bindings.
 ### From PyPI
 Normally, this package can be installed by running
 ```bash
-pip3 install iss
+pip3 install o3iss
 ```
 
 ### From source
