@@ -23,7 +23,7 @@ fn diff(x: &[f64]) -> Vec<f64> {
     x[1..].iter().zip(x).map(|(&a, &b)| a - b).collect()
 }
 
-pub fn i2c(n: &usize) -> Vec<usize> {
+fn i2c(n: &usize) -> Vec<usize> {
     let mut r = Vec::new();
     let mut y = 1;
     let w = ffs(n);
