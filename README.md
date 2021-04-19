@@ -33,7 +33,7 @@ where both the input and ouput arrays are one-dimensional.
 In `v0.1.2`, we introduced partial support for the `sklearn` framework.
 Example (assuming that `sktime` is present):
 ```python3
-from iss import IssClassifier
+from o3iss import IssClassifier
 from sktime.datasets import load_gunpoint
 from sktime.utils.data_processing import from_nested_to_2d_array
 
