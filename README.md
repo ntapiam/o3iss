@@ -1,4 +1,4 @@
-# Iterated-sums signature in Rust
+# Iterated-sums signature in Rust [![Build](https://github.com/ntapiam/o3iss/actions/workflows/build_wheels.yml/badge.svg?branch=travis)](https://github.com/ntapiam/o3iss/actions/workflows/build_wheels.yml)
 
 This is an implementation of the one-dimensional iterated-sums signature in Rust,
 with Python 3 bindings.
